@@ -188,8 +188,10 @@ txBuilderToTxBody'  dCinfo@(DetailedChainInfo cpw conn pParam systemStart eraHis
   if  not requiresExUnitCalculation
     then  ( do
       (body2,signatories2,fee2) <- calculator fixedInputs txMintValue' fee1
-      if fee1 /= fee2  then Left $ FrameworkError LibraryError "Transaction not balanced even in 3rd iteration" else pure  ()
-      pure (body2, makeSignedTransaction [] body2)
+      (body3,signatories3,fee3) <- calculator fixedInputs txMintValue' fee2
+      (body4,signatories4,fee4) <- calculator fixedInputs txMintValue' fee3
+      if fee3 /= fee4  then Left $ FrameworkError LibraryError "Transaction not balanced even in 4th iteration" else pure  ()
+      pure (body4, makeSignedTransaction [] body4)
     )
     else (
           let evaluateBodyWithExunits body fee= do
