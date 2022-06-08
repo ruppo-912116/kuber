@@ -33,6 +33,8 @@ module Cardano.Kuber.Api(
 
     -- Core Tx builder object and it's transformation functions
     ,   TxBuilder
+    ,   TxMintData
+    ,   txMint
     ,   txBuilderToTxBody
     ,   txBuilderToTxBodyIO
     ,   txBuilderToTx
@@ -76,4 +78,5 @@ import Cardano.Kuber.Data.TxBuilderAeson
 import Cardano.Kuber.Utility.ChainInfoUtil
 import Cardano.Kuber.Error
 import Cardano.Kuber.Utility.QueryHelper
+import Cardano.Kuber.Api (TxMintData(TxMintData))
 
