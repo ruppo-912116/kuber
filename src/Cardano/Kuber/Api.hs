@@ -33,7 +33,7 @@ module Cardano.Kuber.Api(
 
     -- Core Tx builder object and it's transformation functions
     ,   TxBuilder
-    ,   TxMintData
+    ,   TxMintData(..)
     ,   txMint
     ,   txBuilderToTxBody
     ,   txBuilderToTxBodyIO
